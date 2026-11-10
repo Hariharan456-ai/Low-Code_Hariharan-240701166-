@@ -1,0 +1,960 @@
+/*
+ * Author       : chandru.gs.2024.cse_rajal632
+ * Generated on : 08-Sep-2026 12:46:39
+ * Version      : 1.0
+ */
+ application "Library Book Issue Management"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Book_Issue_Request_Form
+		{
+			success message = "Data Added Successfully!"
+			Section_A_Member_Details
+			(
+				type = section
+				displayname = " Member Details"
+				visibility = true
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Member_Name
+			(
+    			type = name
+				displayname = "Member Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Register_Roll_Number
+			(
+    			type = text
+				displayname = "Register Roll Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Member_Type
+			(
+				type = radiobuttons
+				displayname = "Member Type"
+				maxchar = 100
+				values = {"Regular","Gold","Diamond"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Section_B_Contact_Details
+			(
+				type = section
+				displayname = "Contact Details"
+				visibility = true
+	 			row = 2
+	 			column = 0   
+				width = medium
+			)
+			must have Email_Address
+			(
+    			type = email
+				displayname = "Email Address"
+				maxchar = 80
+	 			row = 2
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Contact_Number
+			(
+    			type = phonenumber
+				displayname = "Contact Number"
+	 			row = 2
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Hostel_Residential
+			(
+    			type = address
+				displayname = "Hostel Residential"
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 2
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Section_C_Book_Request_Details
+			(
+				type = section
+				displayname = " Book Request Details"
+				visibility = true
+	 			row = 3
+	 			column = 0   
+				width = medium
+			)
+			must have Book_Category
+			(
+				type = picklist
+				displayname = "Book Category"
+				maxchar = 100
+				values = {"Fantasy","Computer Science","Mathematics"}
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			Subject_Areas_Of_Interest
+			(
+				type = list	
+				displayname = "Subject Areas Of Interest"
+				values = {"AI","Magic"}
+				height = 60px
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			Number_Of_Copies
+			(
+				type = number
+				displayname = "Number Of Copies"
+				maxchar = 5
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			Purpose_Of_Borrowing
+			(
+    			type = textarea
+				displayname = "Purpose Of Borrowing"
+				height = 100px
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			must have Requires_home_delivery
+			(
+    			type = checkbox
+				displayname = "Requires home delivery"
+				initial value = false
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			Book_Reference_Url
+			(
+    			type = url
+				displayname = "Book Reference  Url"
+				enable  linkname
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			Book_Cover_Image
+			(
+    			type = image
+				displayname = "Book Cover Image"
+				source  = file
+    			file count = 10
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			Waiver_Percentage
+			(
+    			type = percentage
+				displayname = "Waiver Percentage"
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			Book_Replacement_Price
+			(
+				type = decimal
+				displayname = "Book Replacement Price"
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			Section_D_Scheduling_Acknowledgement
+			(
+				type = section
+				displayname = "Scheduling & Acknowledgement"
+				visibility = true
+	 			row = 4
+	 			column = 0   
+				width = medium
+			)
+			Preferred_Issue_Date
+			(
+    			type = date
+				displayname = "Preferred Issue Date"
+				initial value = "${zoho.currentdate}"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			Preferred_Collection_Time
+			(
+    			type = time
+				displayname = "Preferred Collection Time"
+				timedisplayoptions = "hh:mm:ss" 
+				allowedhours = 09:00-17:00
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			must have Agree_To_Library_Rules
+			(
+				type = checkboxes	
+				displayname = "Agree To Library Rules"
+				values = {"Agree to libray's terms and condition.","I will return my Book."}
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			Library_Rules
+			(
+    			type = richtext
+				displayname = "Library Rules"
+				height = 200px
+				toolbar = enable
+				[
+					style, font-color, background-color, link, bullets-and-numbering, 
+					font-size : {1, 2, 3, 4, 5, 6, 7}
+				]
+    			description
+    			[
+    				type = tooltip
+    			 	message = "<b>📚 Library Rules</b><br><br>\n\n• Books must be returned within <b>14 days</b>.<br>\n• <b>Reference books</b> cannot be issued overnight.<br>\n• Handle books with <b>clean hands</b>.<br><br>\n\n<i>Thank you for helping us maintain our library collection.</i>"
+    			]
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			other_details
+			(
+				type = section
+				displayname = "other details"
+				visibility = true
+	 			row = 5
+	 			column = 0   
+				width = medium
+			)
+			must have Finr_Amount_Due
+			(
+				displayname = "Fine Amount Due"
+				type = INR
+				format = commadotindian
+	 			row = 5
+	 			column = 1   
+				width = medium
+			)
+			Section
+			(
+				type = section
+	 			row = 6
+	 			column = 0   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		default list Book_Issue_Request_Form_Report
+		{
+			displayName = "Book_Issue_Request_Form Report"
+			show all rows from Book_Issue_Request_Form    
+			(
+				Member_Name  as "Member Name"
+				Hostel_Residential  as "Hostel Residential"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Email_Address as "Email Address"
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				Register_Roll_Number as "Register Roll Number"
+				Purpose_Of_Borrowing as "Purpose Of Borrowing"
+				Number_Of_Copies as "Number Of Copies"
+				Preferred_Issue_Date as "Preferred Issue Date"
+				Preferred_Collection_Time as "Preferred Collection Time"
+				Book_Category as "Book Category"
+				Member_Type as "Member Type"
+				Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+				Agree_To_Library_Rules as "Agree To Library Rules"
+				Requires_home_delivery as "Requires home delivery"
+				Library_Rules as "Library Rules"
+				Book_Reference_Url as "Book Reference  Url"
+				Book_Cover_Image as "Book Cover Image"
+				Waiver_Percentage as "Waiver Percentage"
+				Finr_Amount_Due as "Fine Amount Due"
+				Book_Replacement_Price as "Book Replacement Price"
+			)
+			conditional formatting
+			(
+				"New Formatting"
+				{
+				condition = (Book_Category == "")
+				fields = [Member_Name]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+			)
+		}
+		spreadsheet Library_report
+		{
+			displayName = "Library_report"
+			show all rows from Book_Issue_Request_Form    
+			(
+				Member_Name  as "Member Name"
+				Register_Roll_Number as "Register Roll Number"
+				Member_Type as "Member Type"
+				Email_Address as "Email Address"
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				Hostel_Residential  as "Hostel Residential"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Book_Category as "Book Category"
+				Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+				Number_Of_Copies as "Number Of Copies"
+				Purpose_Of_Borrowing as "Purpose Of Borrowing"
+				Requires_home_delivery as "Requires home delivery"
+				Book_Reference_Url as "Book Reference  Url"
+				Book_Cover_Image as "Book Cover Image"
+				Waiver_Percentage as "Waiver Percentage"
+				Finr_Amount_Due as "Fine Amount Due"
+				Book_Replacement_Price as "Book Replacement Price"
+				Preferred_Issue_Date as "Preferred Issue Date"
+				Preferred_Collection_Time as "Preferred Collection Time"
+				Agree_To_Library_Rules as "Agree To Library Rules"
+				Library_Rules as "Library Rules"
+			)
+		}
+	}
+	pages
+	{
+		page Library_Page
+		{
+			displayname = "Library Page"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Board'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'contrl panel'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<gauge \n\telementName='Gauge'\n\n\tcolor = '#000000'\n\tsize = '20px'\n\tfontFamily = 'default' \n\tbgColor = '#FFFFFF'\n\ttheme = '#0BD6B1'\n\tdisplayType = 'actual'\n\ttype = '1'\n\tfilledColor = '#0BD6B1'\n\tnonFilledColor = '#F5F5F5'\n\tneedleColor = '#000000'\n\ttargetColor = '#D8D8D8'\n\tvalue = 'thisapp.Book_Issue_Request_Form.ID.count'\n>\n<target size=\"15px\" color=\"#7F7F7F\" fontFamily=\"default\" value=\"5000\"\n/><maximumvalue size=\"15px\" color=\"#7F7F7F\" value=\"10000\" \n/>\n</gauge>\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<search \n\telementName='Search'\n\tpaddingTop = '40px'\n\tpaddingLeft = '80px'\n\tpaddingRight = '80px'\n\tpaddingBottom = '40px'\n\tbgtype = 'none'\n\tbgColor = '#FFFFFF'\n\n\tshape = 'rounded'\n\tresultComponent = 'report'\n\tlinkName = 'Book_Issue_Request_Form_Report'\n\ttarget = 'new-window'\n\tcriteriaString = 'Book_Category == input.searchString'\n\tfontFamily = 'default'\n\tappLinkName = 'thisapp'\n\tstyle = '4'\n\tplaceholder = 'Enter value'\n\n>\n<searchbar color=\"#000000\" bgColor=\"#FFFFFF\" fontSize=\"15px\"\n/><searchbutton color=\"#FFFFFF\" bgColor=\"#0072F4\" \nfontSize=\"15px\"  /></search>\n</column><column\n   \t\t width='50%'\n   \t>\n\t<chart \n\telementName='Chart'\n\n\ttype = 'Column'\n\txtitle = 'Book Catagory'\n\tytitle = 'Fine amount due'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme1'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Book_Issue_Request_Form'\n\txfield = 'Book_Category'\n\tyfields = 'value:Finr_Amount_Due'\n/>\n\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Board'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<button \n\t\tmargin = '0px'\n\tpaddingTop = '12px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '12px'\n\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\ttext ='End'\n\t\tbgColor = 'theme'\n\t\tcornerRadius = '60px' \n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<report \n\telementName='Report'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'Book_Issue_Request_Form_Report'\n\t\n\t\tiszreport = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n\n/>\n</column><column\n   \t\t width='50%'\n   \t>\n\t<board\n    \n\tbgColor = '#FFFFFF'\n        bgColorType = 'solid'\n\tpadding = '0px'\nelementName='Board'\n    layoutType = 'grid'\n        items = '1'\n    appLinkName = 'thisapp'\n    formLinkName = 'Book_Issue_Request_Form'\n    rankBy = 'ID'\n    rankOrder = 'highestToLowest'\n    rankAggregate = 'count'\n    limit = '3'\n    groupBy = 'Book_Category'\n>\n<boardHeader>\n    <pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '14px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '14px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#000000'\n\tsize = '17px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#000000'\n    borderWidth = '0px'\n\n\t  value = 'Book Catagory'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</boardHeader>\n<boardLayout\n                paddingRight = '15px'\n                paddingBottom = '14px'\n                paddingLeft = '15px'\n                paddingTop = '2px'\n                itemGap = '10px'\n>\n    <pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingLeft = '20px'\n\tpaddingRight = '20px'\n\n    borderColor = '#F2F2F2'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '12px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '10px'\n\tpaddingBottom = '10px'\n\n\t\twidth = '70%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = '#000000'\n\tsize = '19px'\n\tbold = 'true' \n\ttype = 'boardData'\n\n\n    lineHeight = '26'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'rank'\n>\n</text>\n\n</pc><pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '20px'\n\n\tcolor = '#000000'\n\tbgColor = '#F7F7FB'\n\twidth = '36px'\n\theight = '36px'\n\ttype = 'icon'\n\tvalue = 'education-books-46'\n\tsize = '20px'\n\tcornerRadius = '18px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<text \n\n\tmarginLeft = '15px'\n\tcolor = '#000000'\n\tsize = '16px'\n\ttype = 'boardData'\n\n\n    lineHeight = '22'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'groupedField'\n>\n</text>\n\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '10px'\n\tpaddingBottom = '10px'\n\n\t\twidth = '30%'\n\t\thAlign = 'right'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '17px'\n\tbold = 'true' \n\ttype = 'boardData'\n\n\n    lineHeight = '23'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'rankAggregate'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</boardLayout>\n</board>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+	}
+
+
+
+
+		workflow
+		{
+		form
+		{
+			No_past_date as "No past date"
+			{
+				type =  form
+				form = Book_Issue_Request_Form
+
+				record event = on add
+
+				on user input of Preferred_Issue_Date
+				{
+				}
+
+			}
+			No_pd as "No pd"
+			{
+				type =  form
+				form = Book_Issue_Request_Form
+
+				record event = on edit
+
+				on user input of Preferred_Issue_Date
+				{
+				}
+
+			}
+		}
+
+		schedule
+		{
+			report_sending as "report sending"
+			{
+				type =  schedule
+					status = inactive
+				start = "2026-08-21 15:32:00"
+				time zone = "Asia/Kolkata"
+				on start
+				{
+				}
+			}
+			Report as "Report"
+			{
+				type =  schedule
+					status = inactive
+				start = "2026-08-21 16:07:26"
+				frequency = daily
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : "chandru.gs.2024.cse@rajalakshmi.edu.in"
+							subject : "Report"
+							message : "<div>HI this is report</div>"
+							attachments : view : Book_Issue_Request_Form_Report as PDF
+						)
+					}
+				}
+			}
+		}
+
+		approval
+		{
+			book_issuue as "book issuue"
+			{
+				type =  approval
+				form = Book_Issue_Request_Form
+				display fields = [Member_Name,Register_Roll_Number,Member_Type,Email_Address,Contact_Number,Hostel_Residential,Book_Category]
+				on start
+				{
+				}
+				on level 1
+				{
+					on approve 
+					{
+					}
+					on reject
+					{
+
+						actions 
+						{
+							sendmail
+							(
+								from : zoho.loginuserid
+								to : approver.submitter
+								subject : "Approval Request"
+								message : "Your request has been rejected."
+							)
+						}
+					}
+				}
+			}
+		}
+
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+
+	web
+	{
+		forms
+		{
+			form Book_Issue_Request_Form
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report Book_Issue_Request_Form_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Member_Name as "Member Name"
+								Email_Address as "Email Address"
+								Hostel_Residential as "Hostel Residential"
+								Contact_Number as "Contact Number"
+								Register_Roll_Number as "Register Roll Number"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Number_Of_Copies as "Number Of Copies"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Member_Name as "Member Name"
+								Email_Address as "Email Address"
+								Hostel_Residential as "Hostel Residential"
+								Contact_Number as "Contact Number"
+								Register_Roll_Number as "Register Roll Number"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Number_Of_Copies as "Number Of Copies"
+								Preferred_Issue_Date as "Preferred Issue Date"
+								Preferred_Collection_Time as "Preferred Collection Time"
+								Book_Category as "Book Category"
+								Member_Type as "Member Type"
+								Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+								Agree_To_Library_Rules as "Agree To Library Rules"
+								Requires_home_delivery as "Requires home delivery"
+								Library_Rules as "Library Rules"
+								Book_Reference_Url as "Book Reference  Url"
+								Book_Cover_Image as "Book Cover Image"
+								Waiver_Percentage as "Waiver Percentage"
+								Finr_Amount_Due as "Fine Amount Due"
+								Book_Replacement_Price as "Book Replacement Price"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Library_report
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -3
+						datablock1
+						(
+							layout type = -3
+							fields
+							(
+								Member_Name as "Member Name"
+								Register_Roll_Number as "Register Roll Number"
+								Member_Type as "Member Type"
+								Email_Address as "Email Address"
+								Contact_Number as "Contact Number"
+								Hostel_Residential as "Hostel Residential"
+								Book_Category as "Book Category"
+								Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+								Number_Of_Copies as "Number Of Copies"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Requires_home_delivery as "Requires home delivery"
+								Book_Reference_Url as "Book Reference  Url"
+								Book_Cover_Image as "Book Cover Image"
+								Waiver_Percentage as "Waiver Percentage"
+								Finr_Amount_Due as "Fine Amount Due"
+								Book_Replacement_Price as "Book Replacement Price"
+								Preferred_Issue_Date as "Preferred Issue Date"
+								Preferred_Collection_Time as "Preferred Collection Time"
+								Agree_To_Library_Rules as "Agree To Library Rules"
+								Library_Rules as "Library Rules"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Member_Name as "Member Name"
+								Register_Roll_Number as "Register Roll Number"
+								Member_Type as "Member Type"
+								Email_Address as "Email Address"
+								Contact_Number as "Contact Number"
+								Hostel_Residential as "Hostel Residential"
+								Book_Category as "Book Category"
+								Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+								Number_Of_Copies as "Number Of Copies"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Requires_home_delivery as "Requires home delivery"
+								Book_Reference_Url as "Book Reference  Url"
+								Book_Cover_Image as "Book Cover Image"
+								Waiver_Percentage as "Waiver Percentage"
+								Finr_Amount_Due as "Fine Amount Due"
+								Book_Replacement_Price as "Book Replacement Price"
+								Preferred_Issue_Date as "Preferred Issue Date"
+								Preferred_Collection_Time as "Preferred Collection Time"
+								Agree_To_Library_Rules as "Agree To Library Rules"
+								Library_Rules as "Library Rules"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Book_Issue_Request_Form
+				{
+					displayname = "Book_Issue_Request_Form"
+					icon = "tech-desktop"
+					form  Book_Issue_Request_Form
+					{
+						icon = "tech-desktop"
+					}
+					report Book_Issue_Request_Form_Report
+					{
+						icon = "tech-desktop"
+					}
+					report Library_report
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Library_Page
+				{
+					displayname = "Library Page"
+					icon = "business-books"
+					page Library_Page
+					{
+						icon = "business-books"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			font = "lato"
+			color options
+			{
+				color = "11"
+			}
+			logo
+			{
+				preference = "app_icon"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form Book_Issue_Request_Form
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = chryslerpurple
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form Book_Issue_Request_Form
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = lightred
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
